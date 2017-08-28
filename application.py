@@ -16,7 +16,9 @@ from telchoir_app.database import db
 
 application = create_app()
 APP_URL = config.CONFIG_VARS['APP_URL']
-FILE_URL = 'http://49fcfba1.ngrok.io'
+#TODO: Move this to config later, update server-specific config file
+FILE_URL = 'http://ottomata.org/tel-choir-static/'
+
 
 @application.route("/")
 def index():
