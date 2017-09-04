@@ -51,7 +51,10 @@ def instructions():
     resp = twilio.twiml.Response()
 
     if pressed == '1': # high register
-        high_notes = ['high_round_A', 'high_round_B', 'high_round_C']
+        high_notes = ['high_round_G4', 'high_round_G3', 'high_round_F4', 'high_round_Eb4', 'high_round_D4',
+        'high_round_CGslide', 'high_round_C4', 'high_round_Bb3', 'high_round_AbEbslide', 'high_round_Ab3',
+        'high_nasal_G4', 'high_nasal_G3', 'high_nasal_F4', 'high_nasal_F#4', 'high_nasal_Eb4', 'high_nasal_D4',
+        'high_nasal_C4', 'high_nasal_C#4', 'high_nasal_Bb3', 'high_nasal_B3', 'high_nasal_Ab3']
         #TODO: Find out if this works...
         # list_of_prob = [0.2, 0.2, 0.6]
         # note = random.choices(high_notes, weights=list_of_prob)
@@ -60,7 +63,10 @@ def instructions():
         resp.gather(numDigits=1, action="/record", method="POST", timeout=30)
 
     elif pressed == '2': # low register
-        low_notes = ['low_round_D', 'low_round_E', 'low_round_F']
+        low_notes = ['low_round_G3', 'low_round_Fcslide', 'low_round_F3', 'low_round_Eb3', 'low_round_D3',
+        'low_round_C4', 'low_round_C3', 'low_round_Bb3', 'low_round_Bb2', 'low_round_Ab3', 'low_round_Ab2',
+        'low_nasal_G3', 'low_nasal_F3', 'low_nasal_Eb', 'low_nasal_C4', 'low_nasal_C3', 'low_nasal_Bb3',
+        'low_nasal_Ab3', 'low_nasal_Ab2']
         #TODO: Find out of this works...
         # list_of_prob = [0.2, 0.2, 0.6]
         # note = random.choices(low_notes, weights=list_of_prob)
@@ -91,7 +97,7 @@ def record():
     note = note_lookup.note
 
     if pressed == '3': # ready to record
-        resp.play(FILE_URL+'/'+note+'_recording.mp3')
+        resp.play(FILE_URL+'/'+note+'_record.mp3')
         resp.record(maxLength="60", action="/handle-recording", finishOnKey='#', timeout=30)
 
     if pressed == '*': # listen to note again

@@ -3,3 +3,5 @@
 config.py
 config_vars_secret.json
 .DS_Store
+note_list.csv
+random_list.csv
