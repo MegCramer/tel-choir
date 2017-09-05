@@ -98,6 +98,7 @@ def record():
 
     if pressed == '3': # ready to record
         resp.play(FILE_URL+'/'+note+'_record.mp3')
+        resp.play(FILE_URL+'/pound_key.mp3')
         resp.record(maxLength="60", action="/handle-recording", finishOnKey='#', timeout=30)
 
     if pressed == '*': # listen to note again
